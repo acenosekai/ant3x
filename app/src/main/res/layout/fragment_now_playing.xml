@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/playback_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/playback_album"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/darker"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_cover" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_title"
+        style="@style/AppTheme.Toolbar"
+        android:layout_alignParentTop="true"
+        android:background="@color/darker">
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            style="@style/AppTheme.Toolbar.Icon.start"
+            app:iiv_icon="cmd-menu" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:id="@+id/playback_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playback_button_container"
+        android:layout_marginBottom="10dp"
+        android:maxLines="1"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Album"
+        android:textAlignment="center" />
+
+    <RelativeLayout
+        android:id="@+id/playback_seeker_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playback_title_container"
+        android:layout_centerHorizontal="true"
+
+        >
+
+        <TextView
+            android:id="@+id/playback_seeker_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="00:00" />
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/playback_seeker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/playback_seeker_count"
+            android:layout_toLeftOf="@+id/playback_seeker_total"
+            android:layout_toRightOf="@+id/playback_seeker_count"
+            android:layout_toStartOf="@+id/playback_seeker_total" />
+
+        <TextView
+            android:id="@+id/playback_seeker_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="00:00" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/playback_title_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/playback_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Song Title"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/playback_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Artist"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playback_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playback_seeker_container"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/playback_shuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginRight="40dp"
+            app:iiv_color="@color/primary_text"
+            app:iiv_icon="cmd-shuffle"
+            app:iiv_size="24dp" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/playback_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            app:iiv_color="@color/primary_text"
+            app:iiv_icon="cmd-skip-previous"
+            app:iiv_size="24dp" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/playback_play"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:iiv_color="@color/colorAccent"
+            app:iiv_icon="cmd-play-circle-outline"
+            app:iiv_size="80dp" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/playback_next"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:paddingBottom="25dp"
+            android:paddingTop="25dp"
+            app:iiv_color="@color/primary_text"
+            app:iiv_icon="cmd-skip-next"
+            app:iiv_size="24dp" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/playback_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            app:iiv_color="@color/primary_text"
+            app:iiv_icon="cmd-repeat"
+            app:iiv_size="24dp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

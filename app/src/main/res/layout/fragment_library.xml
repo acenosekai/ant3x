@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_title"
+                style="@style/AppTheme.Toolbar">
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    style="@style/AppTheme.Toolbar.Icon.start"
+                    app:iiv_icon="cmd-menu" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    style="@style/AppTheme.Toolbar.Title"
+                    android:text="Library" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:id="@+id/toolbar_title_search"
+                    style="@style/AppTheme.Toolbar.Icon.end"
+                    app:iiv_icon="cmd-magnify" />
+            </android.support.v7.widget.Toolbar>
+
+            <RelativeLayout
+                android:id="@+id/mini_player"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lighter">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_alignBottom="@+id/mini_player_cover"
+                    android:layout_alignTop="@id/mini_player_cover"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <View
+                        android:id="@+id/mini_player_progress"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:background="@color/darker" />
+
+                    <View
+                        android:id="@+id/mini_player_progress_alt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.9"
+                        android:background="@color/transparent" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:layout_toEndOf="@+id/mini_player_play"
+                    android:layout_toLeftOf="@+id/mini_player_cover"
+                    android:layout_toRightOf="@+id/mini_player_play"
+                    android:layout_toStartOf="@+id/mini_player_cover"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/mini_player_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:text="Title"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/mini_player_artist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:text="Artist"
+                        android:textColor="@color/primary_light" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/mini_player_cover"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:padding="5dp"
+                    android:src="@drawable/default_cover_small" />
+
+                <View
+                    android:id="@+id/mini_player_wrap"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_alignBottom="@+id/mini_player_cover"
+                    android:layout_alignTop="@id/mini_player_cover"
+                    android:clickable="true" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:id="@+id/mini_player_play"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginStart="20dp"
+                    app:iiv_color="@color/primary_light"
+                    app:iiv_icon="cmd-play"
+                    app:iiv_size="32dp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <net.lucode.hackware.magicindicator.MagicIndicator
+            android:id="@+id/magic_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/primary" />
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/library_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:ico_color="#ffffff"
+        app:ico_icon="cmd-shuffle"
+        app:ico_size="48dp"
+        app:layout_anchor="@+id/library_pager"
+        app:layout_anchorGravity="bottom|right|end" />
+</android.support.design.widget.CoordinatorLayout>
